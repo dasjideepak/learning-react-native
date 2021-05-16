@@ -1,21 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import ColorBox from "./components/ColorBox";
+import FlatListComp from "./components/FlatList";
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <Text style={styles.headingText}>Learning React Native</Text>
+        <View style={{ borderColor: "black", borderWidth: 1, padding: 4 }}>
+          <Text style={{ paddingVertical: 4 }}>
+            Example 1 - Making Simple Boxes
+          </Text>
+          <View>
+            <ColorBox style={styles.red} colorName="Red" />
+            <ColorBox style={styles.green} colorName="Green" />
+            <ColorBox style={styles.black} colorName="Black" />
+            <ColorBox style={styles.gray} colorName="Gray" />
+          </View>
+        </View>
+        <FlatListComp />
+      </View>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 12,
+  },
+  headingText: {
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingVertical: 8,
+  },
+  red: {
+    backgroundColor: "red",
+  },
+  green: {
+    backgroundColor: "green",
+  },
+  gray: {
+    backgroundColor: "gray",
+  },
+  black: {
+    backgroundColor: "black",
   },
 });
+
+export default App;
